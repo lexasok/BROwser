@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.loadUrl("https://www.google.ru/");
         mWebView.setWebViewClient(new WebViewClient());
+        
 
 
     }
