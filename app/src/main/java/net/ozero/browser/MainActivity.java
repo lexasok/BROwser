@@ -1,5 +1,6 @@
 package net.ozero.browser;
 
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -14,9 +15,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Uri url = getIntent().getData();
+
         mWebView = findViewById(R.id.webView);
         mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.loadUrl("https://www.google.ru/");
+        if (url == null) {
+            mWebView.loadUrl("https://www.google.ru/");
+        } else {
+            mWebView.loadUrl(url.toString());
+        }
         mWebView.setWebViewClient(new WebViewClient());
         
 
